@@ -47,26 +47,29 @@ def pre_patch_ember_formatter(instid, result):
 
 
 # Create API endpoint, which will be available at /api/todos
-restless_manager.create_api(
-    Todo,
-    methods=['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
-    url_prefix='/api',
-    collection_name='todos',
-    results_per_page=-1,
-    # postprocessors={
-    #     'GET_MANY': [ember_formatter]
-    # },
-    preprocessors={
-        'POST': [pre_ember_formatter],
-        'PUT_SINGLE': [pre_patch_ember_formatter]
-    }
-)
+# restless_manager.create_api(
+#     Todo,
+#     methods=['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
+#     url_prefix='/api',
+#     collection_name='todos',
+#     results_per_page=-1,
+#     # postprocessors={
+#     #     'GET_MANY': [ember_formatter]
+#     # },
+#     preprocessors={
+#         'POST': [pre_ember_formatter],
+#         'PUT_SINGLE': [pre_patch_ember_formatter]
+#     }
+# )
 
 
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
-# restless_manager.create_api(Todo, methods=['GET', 'POST', 'DELETE'])
+restless_manager.create_api(Todo, methods=['GET', 'POST', 'DELETE'])
 
+
+# post request example
+# r = requests.post('http://localhost/api/person', data=json.dumps(tasks),headers={'content-type': 'application/json'})
 
 # @app.route('/')
 # def hello_world():
