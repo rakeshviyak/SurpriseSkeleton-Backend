@@ -11,18 +11,6 @@ Install virtualenv because it's pretty neat.
 or
 <pre>$ sudo pip install virtualenv</pre>
 
-
-Now that we have python, virtualenv and pip installed let's set up a directory for our project.
-<pre>
-$ mkdir todo
-$ cd todo
-$ virtualenv env
-New python executable in env/bin/python
-Installing distribute…….[a lot of dots]..done.
-$ source env/bin/activate
-(env)$
-</pre>
-
 Now that we have python, virtualenv and pip installed let's set up a directory for our project.
 <pre>
 $ mkdir todo
@@ -81,7 +69,7 @@ Content-type: application:json
 {"title" : "need to add mysql"}
 </pre>
 
-[Detailed link on the usgae of api](https://flask-restless.readthedocs.org/)
+[Detailed link on the usage of api](https://flask-restless.readthedocs.org/)
 
 
 
