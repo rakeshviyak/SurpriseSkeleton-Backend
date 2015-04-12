@@ -1,12 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask
 import flask.ext.sqlalchemy
 import flask.ext.restless
 
 
-app = Flask(__name__)
+app = Flask(__name__,instance_relative_config=True)
+app.config.from_object('config')
+app.config.from_pyfile('config.py')
+
 
 # Create the Flask-SQLAlchemy object and an SQLite database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] loads from the config file
 db = flask.ext.sqlalchemy.SQLAlchemy(app)
 
 
@@ -75,7 +78,6 @@ restless_manager.create_api(Todo, methods=['GET', 'POST', 'DELETE'])
 # def hello_world():
 #     return render_template('index.html')
 
-app.debug = True
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run()

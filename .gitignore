@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+#ide stuff
+**/.idea/workspace.xml **/.idea/tasks.xml
+
+#configuration files for development
+instance/
